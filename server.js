@@ -1,9 +1,12 @@
-import express from 'express';
+const express = require('express');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 app.get('/', function (req, res) {
-	res.status(200).send('Hello World!');
+	res.status(200).render('room');
 });
 
 app.listen(3000, function () {
